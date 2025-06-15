@@ -1,0 +1,324 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #937B63;    /* Elegant gold */
+    --secondary-color: #2C3539;  /* Deep charcoal */
+    --accent-color: #D4AF37;     /* Metallic gold */
+    --text-color: #333;
+    --light-text: #666;
+    --background-light: #F9F6F2;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--background-light);
+}
+
+h1, h2 {
+    font-family: 'Playfair Display', serif;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    background: linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)),
+                url('https://source.unsplash.com/random/1920x1080/?elegant,wedding') center/cover no-repeat fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle, transparent 20%, var(--background-light) 100%);
+    opacity: 0.7;
+}
+
+.hero-content {
+    padding: 3rem 4rem;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    position: relative;
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    animation: fadeIn 1.5s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.hero h1 {
+    font-size: 4.5rem;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    letter-spacing: 2px;
+}
+
+.announcement {
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+    color: var(--light-text);
+    font-weight: 300;
+    letter-spacing: 1px;
+}
+
+.date {
+    font-size: 2.2rem;
+    margin-bottom: 2rem;
+    color: var(--secondary-color);
+    font-family: 'Playfair Display', serif;
+    position: relative;
+    display: inline-block;
+}
+
+.date::before, .date::after {
+    content: '♥';
+    color: var(--primary-color);
+    margin: 0 1rem;
+    font-size: 1.5rem;
+    opacity: 0.7;
+}
+
+/* Countdown */
+.countdown {
+    display: flex;
+    justify-content: center;
+    gap: 2.5rem;
+    margin-top: 2rem;
+}
+
+.countdown-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease;
+}
+
+.countdown-item:hover {
+    transform: translateY(-5px);
+}
+
+.countdown-item span {
+    font-size: 2.8rem;
+    font-weight: bold;
+    color: var(--primary-color);
+    font-family: 'Playfair Display', serif;
+}
+
+.countdown-item .label {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    color: var(--light-text);
+    letter-spacing: 2px;
+    margin-top: 0.5rem;
+}
+
+/* Sections */
+section {
+    padding: 7rem 0;
+    text-align: center;
+    position: relative;
+}
+
+section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background: var(--primary-color);
+    opacity: 0.3;
+}
+
+.details {
+    background-color: white;
+}
+
+.our-story {
+    background-color: var(--background-light);
+    position: relative;
+}
+
+.our-story::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 200px;
+    background: linear-gradient(to bottom, transparent, white);
+    pointer-events: none;
+}
+
+h2 {
+    font-size: 3rem;
+    margin-bottom: 2.5rem;
+    color: var(--secondary-color);
+    position: relative;
+    display: inline-block;
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    height: 2px;
+    background: var(--accent-color);
+}
+
+/* RSVP Section */
+.rsvp {
+    background-color: white;
+    position: relative;
+}
+
+.form-group {
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+input, select {
+    width: 100%;
+    max-width: 400px;
+    padding: 1rem;
+    border: 2px solid rgba(147, 123, 99, 0.2);
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: 'Montserrat', sans-serif;
+    transition: all 0.3s ease;
+    background: transparent;
+}
+
+input:focus, select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 10px rgba(147, 123, 99, 0.1);
+}
+
+button {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 1.2rem 3rem;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 500;
+    box-shadow: 0 4px 15px rgba(147, 123, 99, 0.2);
+}
+
+button:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(147, 123, 99, 0.3);
+}
+
+/* Footer */
+footer {
+    background-color: var(--secondary-color);
+    color: white;
+    text-align: center;
+    padding: 2rem;
+    position: relative;
+}
+
+footer p {
+    font-size: 1.2rem;
+    letter-spacing: 3px;
+    opacity: 0.9;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 3.5rem;
+    }
+
+    .hero-content {
+        padding: 2rem;
+        margin: 1rem;
+    }
+
+    .countdown {
+        gap: 1rem;
+    }
+
+    .countdown-item {
+        padding: 0.8rem 1.2rem;
+    }
+
+    .countdown-item span {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero h1 {
+        font-size: 2.8rem;
+    }
+
+    .announcement {
+        font-size: 1.4rem;
+    }
+
+    .date {
+        font-size: 1.8rem;
+    }
+
+    .countdown {
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+
+    .countdown-item {
+        width: calc(50% - 1rem);
+    }
+
+    button {
+        padding: 1rem 2rem;
+        width: 100%;
+        max-width: 300px;
+    }
+} 
